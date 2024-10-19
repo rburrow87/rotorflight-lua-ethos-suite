@@ -25,7 +25,7 @@ local arg = {...}
 local config = arg[1]
 local compile = arg[2]
 
-function ui.progressDisplay(title, message)
+function ui.progessDisplay(title, message)
 
     if rfsuite.app.dialogs.progressDisplay == true then return end
 
@@ -45,14 +45,14 @@ function ui.progressDisplay(title, message)
     end
 end
 
-function ui.progressNolinkDisplay()
+function ui.progessNolinkDisplay()
     rfsuite.app.dialogs.nolinkDisplay = true
     rfsuite.app.dialogs.noLink = form.openProgressDialog("Connecting", "Connecting...")
     rfsuite.app.dialogs.noLink:closeAllowed(false)
     rfsuite.app.dialogs.noLink:value(0)
 end
 
-function ui.progressDisplaySave()
+function ui.progessDisplaySave()
     rfsuite.app.dialogs.saveDisplay = true
     rfsuite.app.dialogs.saveWatchDog = os.clock()
     rfsuite.app.dialogs.save = form.openProgressDialog("Saving", "Saving data...")
@@ -61,7 +61,7 @@ function ui.progressDisplaySave()
 end
 
 -- we wrap a simple rate limiter into this to prevent cpu overload when handling msp
-function ui.progressDisplayValue(value, message)
+function ui.progessDisplayValue(value, message)
 
     -- if rfsuite.app.triggers.mspBusy == true then return end
 
@@ -81,7 +81,7 @@ function ui.progressDisplayValue(value, message)
 end
 
 -- we wrap a simple rate limiter into this to prevent cpu overload when handling msp
-function ui.progressDisplaySaveValue(value, message)
+function ui.progessDisplaySaveValue(value, message)
 
     -- if rfsuite.app.triggers.mspBusy == true then return end
 
@@ -100,38 +100,38 @@ function ui.progressDisplaySaveValue(value, message)
 
 end
 
-function ui.progressDisplayClose()
+function ui.progessDisplayClose()
     if rfsuite.app.dialogs.progress ~= nil then rfsuite.app.dialogs.progress:close() end
     rfsuite.app.dialogs.progressDisplay = false
 end
 
-function ui.progressDisplayCloseAllowed(status)
+function ui.progessDisplayCloseAllowed(status)
     if rfsuite.app.dialogs.progress ~= nil then rfsuite.app.dialogs.progress:closeAllowed(status) end
 end
 
-function ui.progressDisplayMessage(message)
+function ui.progessDisplayMessage(message)
     if rfsuite.app.dialogs.progress ~= nil then rfsuite.app.dialogs.progress:message(message) end
 end
 
-function ui.progressDisplaySaveClose()
+function ui.progessDisplaySaveClose()
     if rfsuite.app.dialogs.progress ~= nil then rfsuite.app.dialogs.save:close() end
     rfsuite.app.dialogs.saveDisplay = false
 end
 
-function ui.progressDisplaySaveMessage(message)
+function ui.progessDisplaySaveMessage(message)
     if rfsuite.app.dialogs.save ~= nil then rfsuite.app.dialogs.save:message(message) end
 end
 
-function ui.progressDisplaySaveCloseAllowed(status)
+function ui.progessDisplaySaveCloseAllowed(status)
     if rfsuite.app.dialogs.save ~= nil then rfsuite.app.dialogs.save:closeAllowed(status) end
 end
 
-function ui.progressNolinkDisplayClose()
+function ui.progessNolinkDisplayClose()
     rfsuite.app.dialogs.noLink:close()
 end
 
 -- we wrap a simple rate limiter into this to prevent cpu overload when handling msp
-function ui.progressDisplayNoLinkValue(value, message)
+function ui.progessDisplayNoLinkValue(value, message)
 
     -- if rfsuite.app.triggers.mspBusy == true then return end
 
@@ -264,7 +264,7 @@ function ui.openMainMenu()
                                     end,
                                     press = function()
                                         rfsuite.app.menuLastSelected["mainmenu"] = pidx
-                                        rfsuite.app.ui.progressDisplay()
+                                        rfsuite.app.ui.progessDisplay()
                                         rfsuite.app.ui.openPage(pidx, pvalue.title, pvalue.script)
                                     end
                                 })

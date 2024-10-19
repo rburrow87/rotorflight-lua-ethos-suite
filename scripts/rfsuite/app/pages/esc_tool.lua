@@ -185,7 +185,7 @@ local function openPage(pidx, title, script)
             end,
             press = function()
                 rfsuite.app.menuLastSelected["esctool"] = pidx
-                rfsuite.app.ui.progressDisplay()
+                rfsuite.app.ui.progessDisplay()
 
                 -- rfsuite.app.ui.openPage(pidx, folder, "esc_form.lua",pvalue.script)
                 rfsuite.app.ui.openPage(pidx, title, "esc/" .. folder .. "/pages/" .. pvalue.script)
@@ -241,7 +241,7 @@ local function wakeup()
 
     if showPowerCycleLoaderFinished == false and foundESCupdateTag == false and showPowerCycleLoader == false and
         ((findTimeoutClock <= os.clock() - findTimeout) or rfsuite.app.dialogs.progressCounter >= 101) then
-        rfsuite.app.ui.progressDisplayClose()
+        rfsuite.app.ui.progessDisplayClose()
         rfsuite.app.dialogs.progressDisplay = false
         rfsuite.app.triggers.isReady = true
 

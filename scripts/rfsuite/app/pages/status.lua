@@ -148,7 +148,7 @@ local function wakeup()
         rfsuite.app.audio.playEraseFlash = true
         triggerEraseDataFlash = false
 
-        rfsuite.app.ui.progressDisplay("Erasing", "Erasing dataflash...")
+        rfsuite.app.ui.progessDisplay("Erasing", "Erasing dataflash...")
         rfsuite.app.Page.eraseDataflash()
         rfsuite.app.triggers.isReady = true
     end

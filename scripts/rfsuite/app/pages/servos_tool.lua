@@ -123,7 +123,7 @@ local function saveServoSettings(self)
 end
 
 local function onSaveMenuProgress()
-    rfsuite.app.ui.progressDisplay("Saving", "Saving data...")
+    rfsuite.app.ui.progessDisplay("Saving", "Saving data...")
     saveServoSettings()
     rfsuite.app.triggers.isReady = true
     rfsuite.app.triggers.closeProgressLoader = true
@@ -166,7 +166,7 @@ end
 
 local function onNavMenu(self)
 
-    rfsuite.app.ui.progressDisplay()
+    rfsuite.app.ui.progessDisplay()
     rfsuite.app.ui.openPage(rfsuite.app.lastIdx, rfsuite.app.lastTitle, "servos.lua", rfsuite.config.servoOverride)
 
 end
@@ -203,7 +203,7 @@ local function wakeup(self)
 
         if rfsuite.config.servoOverride == false then
             rfsuite.app.audio.playServoOverideEnable = true
-            rfsuite.app.ui.progressDisplay("Servo override", "Enabling servo override...")
+            rfsuite.app.ui.progessDisplay("Servo override", "Enabling servo override...")
             rfsuite.app.Page.servoCenterFocusAllOn(self)
             rfsuite.config.servoOverride = true
 
@@ -220,7 +220,7 @@ local function wakeup(self)
         else
 
             rfsuite.app.audio.playServoOverideDisable = true
-            rfsuite.app.ui.progressDisplay("Servo override", "Disabling servo override...")
+            rfsuite.app.ui.progessDisplay("Servo override", "Disabling servo override...")
             rfsuite.app.Page.servoCenterFocusAllOff(self)
             rfsuite.config.servoOverride = false
 

@@ -205,7 +205,7 @@ local function openPage(pidx, title, script)
                 press = function()
                     rfsuite.app.menuLastSelected["servos"] = pidx
                     rfsuite.currentServoIndex = pidx
-                    rfsuite.app.ui.progressDisplay()
+                    rfsuite.app.ui.progessDisplay()
                     rfsuite.app.ui.openPage(pidx, pvalue.title, "servos_tool.lua", servoTable)
                 end
             })
@@ -378,12 +378,12 @@ local function wakeup()
 
         if rfsuite.config.servoOverride == false then
             rfsuite.app.audio.playServoOverideEnable = true
-            rfsuite.app.ui.progressDisplay("Servo override", "Enabling servo override...")
+            rfsuite.app.ui.progessDisplay("Servo override", "Enabling servo override...")
             rfsuite.app.Page.servoCenterFocusAllOn(self)
             rfsuite.config.servoOverride = true
         else
             rfsuite.app.audio.playServoOverideDisable = true
-            rfsuite.app.ui.progressDisplay("Servo override", "Disabling servo override...")
+            rfsuite.app.ui.progessDisplay("Servo override", "Disabling servo override...")
             rfsuite.app.Page.servoCenterFocusAllOff(self)
             rfsuite.config.servoOverride = false
         end
@@ -437,11 +437,11 @@ local function onNavMenu(self)
         rfsuite.app.audio.playServoOverideDisable = true
         rfsuite.config.servoOverride = false
         inFocus = false
-        rfsuite.app.ui.progressDisplay("Servo override", "Disabling servo override...")
+        rfsuite.app.ui.progessDisplay("Servo override", "Disabling servo override...")
         rfsuite.app.Page.servoCenterFocusAllOff(self)
         rfsuite.app.triggers.closeProgressLoader = true
     end
-    -- rfsuite.app.ui.progressDisplay()
+    -- rfsuite.app.ui.progessDisplay()
     rfsuite.app.ui.openMainMenu()
 
 end
