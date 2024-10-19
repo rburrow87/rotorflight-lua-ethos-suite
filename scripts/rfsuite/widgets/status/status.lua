@@ -574,7 +574,7 @@ function status.configure(widget)
     end)
 
     -- announcement RPM READING
-    line = announcementpanel:addLine("Rpm")
+    line = announcementpanel:addLine("RPM")
     form.addSwitchField(line, nil, function()
         return status.announcementRPMSwitchParam
     end, function(value)
@@ -606,7 +606,7 @@ function status.configure(widget)
     end)
 
     -- announcement LQ READING
-    line = announcementpanel:addLine("Esc temperature")
+    line = announcementpanel:addLine("ESC temperature")
     form.addSwitchField(line, form.getFieldSlots(line)[0], function()
         return status.announcementESCSwitchParam
     end, function(value)
@@ -614,7 +614,7 @@ function status.configure(widget)
     end)
 
     -- announcement MCU READING
-    line = announcementpanel:addLine("Mcu temperature")
+    line = announcementpanel:addLine("MCU temperature")
     form.addSwitchField(line, form.getFieldSlots(line)[0], function()
         return status.announcementMCUSwitchParam
     end, function(value)

@@ -1,4 +1,4 @@
-local toolName = "Hobbywing 5"
+local toolName = "Hobbywing V5"
 local mspHeaderBytes = 2
 
 -- rfsuite.bg.msp.protocol.mspIntervalOveride = 0.8

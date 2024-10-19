@@ -20,8 +20,8 @@ local displayPos = {x = x - buttonW - buttonWs - 5 - buttonWs, y = rfsuite.app.r
 
 fields[1] = {t = "Arming Flags", value = "", type = displayType, disable = disableType, position = displayPos}
 fields[2] = {t = "Dataflash Free Space", value = "", type = displayType, disable = disableType, position = displayPos}
-fields[3] = {t = "Real-time load", value = "", type = displayType, disable = disableType, position = displayPos}
-fields[4] = {t = "CPU load", value = "", type = displayType, disable = disableType, position = displayPos}
+fields[3] = {t = "Real-time Load", value = "", type = displayType, disable = disableType, position = displayPos}
+fields[4] = {t = "CPU Load", value = "", type = displayType, disable = disableType, position = displayPos}
 
 local function getStatus()
     local message = {
@@ -148,7 +148,7 @@ local function wakeup()
         rfsuite.app.audio.playEraseFlash = true
         triggerEraseDataFlash = false
 
-        rfsuite.app.ui.progessDisplay("Erasing...", "Erasing dataflash.")
+        rfsuite.app.ui.progessDisplay("Erasing", "Erasing dataflash...")
         rfsuite.app.Page.eraseDataflash()
         rfsuite.app.triggers.isReady = true
     end

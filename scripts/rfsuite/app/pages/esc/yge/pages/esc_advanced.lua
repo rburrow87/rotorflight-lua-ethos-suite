@@ -76,6 +76,6 @@ return {
     navButtons = {menu = true, save = true, reload = true, tool = false, help = false},
     onNavMenu = onNavMenu,
     event = event,
-    pageTitle = "Esc / Yge / Advanced",
+    pageTitle = "ESC / YGE / Advanced",
     headerLine = rfsuite.escHeaderLineText
 }

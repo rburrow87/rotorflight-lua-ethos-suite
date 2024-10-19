@@ -123,7 +123,7 @@ local function saveServoSettings(self)
 end
 
 local function onSaveMenuProgress()
-    rfsuite.app.ui.progessDisplay("Saving...", "Saving data...")
+    rfsuite.app.ui.progessDisplay("Saving", "Saving data...")
     saveServoSettings()
     rfsuite.app.triggers.isReady = true
     rfsuite.app.triggers.closeProgressLoader = true
@@ -147,7 +147,7 @@ local function onSaveMenu()
         }
     }
     local theTitle = "Save settings"
-    local theMsg = "Save current page to flight controller"
+    local theMsg = "Save current page to flight controller?"
 
     form.openDialog({
         width = nil,
@@ -203,7 +203,7 @@ local function wakeup(self)
 
         if rfsuite.config.servoOverride == false then
             rfsuite.app.audio.playServoOverideEnable = true
-            rfsuite.app.ui.progessDisplay("Servo overide...", "Enabling servo overide.")
+            rfsuite.app.ui.progessDisplay("Servo override", "Enabling servo override...")
             rfsuite.app.Page.servoCenterFocusAllOn(self)
             rfsuite.config.servoOverride = true
 
@@ -220,7 +220,7 @@ local function wakeup(self)
         else
 
             rfsuite.app.audio.playServoOverideDisable = true
-            rfsuite.app.ui.progessDisplay("Servo overide...", "Disabling servo overide.")
+            rfsuite.app.ui.progessDisplay("Servo override", "Disabling servo override...")
             rfsuite.app.Page.servoCenterFocusAllOff(self)
             rfsuite.config.servoOverride = false
 
@@ -559,7 +559,7 @@ local function onToolMenu(self)
                 action = function()
 
                     -- we cant launch the loader here to se rely on the modules
-                    -- wakup function to do this
+                    -- wakeup function to do this
                     triggerOverRide = true
                     return true
                 end
@@ -574,11 +574,11 @@ local function onToolMenu(self)
     local message
     local title
     if rfsuite.config.servoOverride == false then
-        title = "Enable servo overide"
-        message = "Servo overide allows you to 'trim' your servo center point in real time."
+        title = "Enable servo override"
+        message = "Servo override allows you to 'trim' your servo center point in real time."
     else
-        title = "Disable servo overide"
-        message = "Return control of the servos to the flight controller"
+        title = "Disable servo override"
+        message = "Return control of the servos to the flight controller."
     end
 
     form.openDialog({

@@ -164,43 +164,51 @@ data["filters"]["TEXT"] = {
 -- HARDWARE - GOVERNOR
 data["governor"] = {}
 data["governor"]["qrCODE"] = "app/gfx/qr/governor.png"
-data["governor"]["TEXT"] = {"These paramers apply globally to the governor - regardless of the profile in use.", "Broadly - each parameter is simply a time value in seconds for each governor action."}
+data["governor"]["TEXT"] = {"These parameters apply globally to the governor regardless of the profile in use.", "Each parameter is simply a time value in seconds for each governor action."}
 
 -- STATUS
 data["status"] = {}
 data["status"]["qrCODE"] = nil
 data["status"]["TEXT"] = {
-    "Use this page to view your current flight controller status.  This can be usefull when determining why your heli will not arm.",
-    "To erase the dataflash for more log file storage, press the button on the menu denoted by a '*'"
+    "Use this page to view your current flight controller status. This can be useful when determining why your heli will not arm.",
+    "To erase the dataflash for more log file storage, press the button on the menu denoted by a '*'."
 }
 
 -- STATUS
 data["about"] = {}
 data["about"]["qrCODE"] = "app/gfx/qr/about.png"
 data["about"]["TEXT"] = {
-    "This page provides some usefull information that you may be asked for when requesting support.", "For support, please first read the help pages on www.rotorflight.org",
-    "If stuck or further assistanace required, drop past out discord group by scanning the qr code on the right."
+    "This page provides some useful information that you may be asked for when requesting support.", "For support, please first read the help pages on www.rotorflight.org",
+    "If you're stuck or need further assistance, drop by our Discord group by scanning the QR code on the right."
 }
 
 -- SELECT PROFILE
 data["select_profile"] = {}
 data["select_profile"]["qrCODE"] = nil
 data["select_profile"]["TEXT"] = {
-    "Set the current flight profile or rate profile you would like to use",
+    "Set the current flight profile or rate profile you would like to use.",
     "If you use use a switch on your radio to change flight or rate modes, this will over-ride this choice as soon as you toggle the switch."
+}
+
+-- COPY PROFILES
+data["copy_profiles"] = {}
+data["copy_profiles"]["qrCODE"] = nil
+data["copy_profiles"]["TEXT"] = {
+    "Copy PID profile or Rate profile from Source to Destination.", "Choose the source and destinations and save to copy the profile."
 }
 
 -- SELECT PROFILE
 data["msp_speed"] = {}
 data["msp_speed"]["qrCODE"] = nil
-data["msp_speed"]["TEXT"] = {"This tool attempt to determine the quality of your msp data link by performing as many large Msp queries within 30 seconds as possible."}
+data["msp_speed"]["TEXT"] = {"This tool attempt to determine the quality of your MSP data link by performing as many large MSP queries within 30 seconds as possible."}
 
 -- EXP MSP
 data["msp_exp"] = {}
 data["msp_exp"]["qrCODE"] = nil
-data["msp_exp"]["TEXT"] = {"This tool provides the ability to send a custom byte string to the fbl.  It is usefull for developers when debugging values",
-                           "If you do not understand what you are doing - do not use it as bad things can happen."
-                          }
+data["msp_exp"]["TEXT"] = {
+    "This tool provides the ability to send a custom byte string to the flight controller. It is useful for developers when debugging values.",
+    "If you do not understand what you are doing, do not use it as bad things can happen."
+}
 
 
 return {data = data}

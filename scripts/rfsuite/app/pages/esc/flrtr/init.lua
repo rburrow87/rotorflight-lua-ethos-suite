@@ -1,4 +1,4 @@
-local toolName = "Flyrotor"
+local toolName = "FLYROTOR"
 moduleName = "FLRTR"
 
 local mspHeaderBytes = 2

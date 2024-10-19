@@ -69,7 +69,7 @@ local function onSaveMenu()
     form.openDialog({
         width = nil,
         title = "Save settings",
-        message = "Save current page to flight controller",
+        message = "Save current page to flight controller?",
         buttons = buttons,
         wakeup = function()
         end,

@@ -31,7 +31,7 @@ labels[#labels + 1] = {t = "", label = "esc3", inline_size = 40.6}
 fields[#fields + 1] = {t = "BEC Voltage", inline = 1, label = "esc3", min = 0, max = #voltages, vals = {mspHeaderBytes + 68}, tableIdxInc = -1, table = voltages}
 
 labels[#labels + 1] = {t = "Protection and Limits", label = "limits1", inline_size = 40.6}
-fields[#fields + 1] = {t = "Lipo Cell Count", inline = 1, label = "limits1", min = 0, max = #lipoCellCount, vals = {mspHeaderBytes + 65}, tableIdxInc = -1, table = lipoCellCount}
+fields[#fields + 1] = {t = "LiPo Cell Count", inline = 1, label = "limits1", min = 0, max = #lipoCellCount, vals = {mspHeaderBytes + 65}, tableIdxInc = -1, table = lipoCellCount}
 
 labels[#labels + 1] = {t = "", label = "limits2", inline_size = 40.6}
 fields[#fields + 1] = {t = "Volt Cutoff Type", inline = 1, label = "limits2", min = 0, max = #cutoffType, vals = {mspHeaderBytes + 66}, tableIdxInc = -1, table = cutoffType}
@@ -78,6 +78,6 @@ return {
     navButtons = {menu = true, save = true, reload = true, tool = false, help = false},
     onNavMenu = onNavMenu,
     event = event,
-    pageTitle = "Esc / Hobbywing 5 / Basic",
+    pageTitle = "ESC / Hobbywing V5 / Basic",
     headerLine = rfsuite.escHeaderLineText
 }

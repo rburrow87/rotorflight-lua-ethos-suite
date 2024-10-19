@@ -168,7 +168,7 @@ local function wakeup(self)
 
             rfsuite.app.audio.playMixerOverideEnable = true
 
-            rfsuite.app.ui.progessDisplay("Mixer overide...", "Enabling mixer overide.")
+            rfsuite.app.ui.progessDisplay("Mixer override", "Enabling mixer override...")
 
             rfsuite.app.Page.mixerOn(self)
             inOverRide = true
@@ -176,7 +176,7 @@ local function wakeup(self)
 
             rfsuite.app.audio.playMixerOverideDisable = true
 
-            rfsuite.app.ui.progessDisplay("Mixer overide...", "Disabling mixer overide.")
+            rfsuite.app.ui.progessDisplay("Mixer override", "Disabling mixer override...")
 
             rfsuite.app.Page.mixerOff(self)
             inOverRide = false
@@ -207,10 +207,10 @@ local function onToolMenu(self)
     local message
     local title
     if inOverRide == false then
-        title = "Enable mixer overide"
+        title = "Enable mixer override"
         message = "Set all servos to their configured center position. \r\n\r\nThis will result in all values on this page being saved when adjusting the servo trim."
     else
-        title = "Disable mixer overide"
+        title = "Disable mixer override"
         message = "Return control of the servos to the flight controller."
     end
 
@@ -236,7 +236,7 @@ local function onNavMenu(self)
         inOverRide = false
         inFocus = false
 
-        rfsuite.app.ui.progessDisplay("Mixer overide...", "Disabling mixer overide.")
+        rfsuite.app.ui.progessDisplay("Mixer override", "Disabling mixer override...")
 
         mixerOff(self)
         rfsuite.app.triggers.closeProgressLoader = true

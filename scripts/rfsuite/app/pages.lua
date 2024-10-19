@@ -36,16 +36,16 @@ pages[#pages + 1] = {title = "Mixer", section = 4, script = "mixer.lua", image =
 pages[#pages + 1] = {title = "Accelerometer", section = 4, script = "accelerometer.lua", image = "acc.png"}
 pages[#pages + 1] = {title = "Filters", section = 4, script = "filters.lua", image = "filters.png"}
 pages[#pages + 1] = {title = "Governor", section = 4, script = "governor.lua", image = "governor.png"}
-pages[#pages + 1] = {title = "Esc", section = 4, script = "esc.lua", image = "esc.png"}
+pages[#pages + 1] = {title = "ESC", section = 4, script = "esc.lua", image = "esc.png"}
 
 sections[#sections + 1] = {title = "Tools", section = 5}
-pages[#pages + 1] = {title = "Copy profiles", section = 5, script = "copy_profiles.lua", image = "copy.png"}
-pages[#pages + 1] = {title = "Profile", section = 5, script = "select_profile.lua", image = "select_profile.png"}
+pages[#pages + 1] = {title = "Copy Profiles", section = 5, script = "copy_profiles.lua", image = "copy.png"}
+pages[#pages + 1] = {title = "Set Profiles", section = 5, script = "select_profile.lua", image = "select_profile.png"}
 pages[#pages + 1] = {title = "Status", section = 5, script = "status.lua", image = "status.png"}
 
 
 sections[#sections + 1] = {title = "Developer", section = 6, developer = true}
-pages[#pages + 1] = {title = "Msp speed", section = 6, script = "msp_speed.lua", image = "msp_speed.png"}
+pages[#pages + 1] = {title = "MSP Speed", section = 6, script = "msp_speed.lua", image = "msp_speed.png"}
 pages[#pages + 1] = {title = "Experimental", section = 6, script = "msp_exp.lua", image = "msp_exp.png"}
 
 sections[#sections + 1] = {title = "About", section = 7}
