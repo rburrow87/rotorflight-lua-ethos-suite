@@ -40,7 +40,7 @@ pages[#pages + 1] = {title = "ESC", section = 4, script = "esc.lua", image = "es
 
 sections[#sections + 1] = {title = "Tools", section = 5}
 pages[#pages + 1] = {title = "Copy Profiles", section = 5, script = "copy_profiles.lua", image = "copy.png"}
-pages[#pages + 1] = {title = "Profile", section = 5, script = "select_profile.lua", image = "select_profile.png"}
+pages[#pages + 1] = {title = "Set Profiles", section = 5, script = "select_profile.lua", image = "select_profile.png"}
 pages[#pages + 1] = {title = "Status", section = 5, script = "status.lua", image = "status.png"}
 
 

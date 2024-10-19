@@ -179,15 +179,22 @@ data["about"] = {}
 data["about"]["qrCODE"] = "app/gfx/qr/about.png"
 data["about"]["TEXT"] = {
     "This page provides some useful information that you may be asked for when requesting support.", "For support, please first read the help pages on www.rotorflight.org",
-    "If you're stuck or need assistance, drop by our Discord group by scanning the QR code on the right."
+    "If you're stuck or need further assistance, drop by our Discord group by scanning the QR code on the right."
 }
 
 -- SELECT PROFILE
 data["select_profile"] = {}
 data["select_profile"]["qrCODE"] = nil
 data["select_profile"]["TEXT"] = {
-    "Set the current flight profile or rate profile you would like to use",
+    "Set the current flight profile or rate profile you would like to use.",
     "If you use use a switch on your radio to change flight or rate modes, this will over-ride this choice as soon as you toggle the switch."
+}
+
+-- COPY PROFILES
+data["copy_profiles"] = {}
+data["copy_profiles"]["qrCODE"] = nil
+data["copy_profiles"]["TEXT"] = {
+    "Copy PID profile or Rate profile from Source to Destination.", "Choose the source and destinations and save to copy the profile."
 }
 
 -- SELECT PROFILE
