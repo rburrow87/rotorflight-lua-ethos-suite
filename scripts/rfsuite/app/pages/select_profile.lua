@@ -86,7 +86,7 @@ local function wakeup()
 
     -- display the dialog box
     if triggerSave == true then
-        rfsuite.app.ui.progessDisplaySave()
+        rfsuite.app.ui.progressDisplaySave()
         triggerSaveCounter = true
         triggerMSPWrite = true
         triggerSave = false
@@ -95,12 +95,12 @@ local function wakeup()
     -- step through the values
     if triggerSaveCounter == true then
         saveCounter = saveCounter + 10
-        rfsuite.app.ui.progessDisplaySaveValue(saveCounter, message)
+        rfsuite.app.ui.progressDisplaySaveValue(saveCounter, message)
         if saveCounter >= 100 then
             saveCounter = 0
             triggerSaveCounter = false
             rfsuite.app.dialogs.saveDisplay = false
-            rfsuite.app.ui.progessDisplaySaveClose()
+            rfsuite.app.ui.progressDisplaySaveClose()
             rfsuite.app.dialogs.progressDisplay = false
             rfsuite.app.triggers.isReady = true
         end
