@@ -13,7 +13,7 @@ local fanControl = {"Automatic", "Always On"}
 
 -- fields[#fields + 1] = {t = "ESC type", tablevals = {mspHeaderBytes + 1}, tableIdxInc = -1, table = flightMode} -- informational - maybe put in header
 -- fields[#fields + 1] = {t = "Current spec", vals = {mspHeaderBytes + 3, mspHeaderBytes + 2}, unit="A"}  -- informational - maybe put in header?
-fields[#fields + 1] = {t = "Cell Count", min = 4, max = 14, vals = {mspHeaderBytes + 24}}
+fields[#fields + 1] = {t = "Cell count", min = 4, max = 14, vals = {mspHeaderBytes + 24}}
 fields[#fields + 1] = {t = "BEC voltage", vals = {mspHeaderBytes + 27}, tableIdxInc = -1, table = becVoltage, unit = "V"}
 fields[#fields + 1] = {t = "Motor direction", vals = {mspHeaderBytes + 29}, tableIdxInc = -1, table = motorDirection}
 fields[#fields + 1] = {t = "Soft start", min = 5, max = 55, vals = {mspHeaderBytes + 35}}
