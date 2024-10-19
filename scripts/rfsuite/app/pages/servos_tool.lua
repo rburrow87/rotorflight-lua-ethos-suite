@@ -123,7 +123,7 @@ local function saveServoSettings(self)
 end
 
 local function onSaveMenuProgress()
-    rfsuite.app.ui.progessDisplay("Saving...", "Saving data...")
+    rfsuite.app.ui.progessDisplay("Saving", "Saving data...")
     saveServoSettings()
     rfsuite.app.triggers.isReady = true
     rfsuite.app.triggers.closeProgressLoader = true
@@ -147,7 +147,7 @@ local function onSaveMenu()
         }
     }
     local theTitle = "Save settings"
-    local theMsg = "Save current page to flight controller"
+    local theMsg = "Save current page to flight controller?"
 
     form.openDialog({
         width = nil,

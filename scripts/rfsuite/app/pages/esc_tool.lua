@@ -282,7 +282,7 @@ local function wakeup()
             showPowerCycleLoaderInProgress = true
             rfsuite.app.audio.playEscPowerCycle = true
             rfsuite.app.triggers.disableRssiTimeout = true
-            powercycleLoader = form.openProgressDialog("Searching...", "Please power cycle the speed controller...")
+            powercycleLoader = form.openProgressDialog("Searching", "Please power cycle the ESC...")
             powercycleLoader:value(0)
             powercycleLoader:closeAllowed(false)
         end

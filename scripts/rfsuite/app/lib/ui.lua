@@ -31,7 +31,7 @@ function ui.progessDisplay(title, message)
 
     rfsuite.app.audio.playLoading = true
 
-    if title == nil then title = "Loading..." end
+    if title == nil then title = "Loading" end
     if message == nil then message = "Loading data from flight controller..." end
 
     rfsuite.app.dialogs.progressDisplay = true
@@ -47,7 +47,7 @@ end
 
 function ui.progessNolinkDisplay()
     rfsuite.app.dialogs.nolinkDisplay = true
-    rfsuite.app.dialogs.noLink = form.openProgressDialog("Connecting", "Connecting")
+    rfsuite.app.dialogs.noLink = form.openProgressDialog("Connecting", "Connecting...")
     rfsuite.app.dialogs.noLink:closeAllowed(false)
     rfsuite.app.dialogs.noLink:value(0)
 end
@@ -55,7 +55,7 @@ end
 function ui.progessDisplaySave()
     rfsuite.app.dialogs.saveDisplay = true
     rfsuite.app.dialogs.saveWatchDog = os.clock()
-    rfsuite.app.dialogs.save = form.openProgressDialog("Saving...", "Saving data...")
+    rfsuite.app.dialogs.save = form.openProgressDialog("Saving", "Saving data...")
     rfsuite.app.dialogs.save:value(0)
     rfsuite.app.dialogs.save:closeAllowed(false)
 end

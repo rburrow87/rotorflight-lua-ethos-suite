@@ -729,7 +729,7 @@ function app.wakeupUI()
             }
         }
         local theTitle = "Save settings"
-        local theMsg = "Save current page to flight controller"
+        local theMsg = "Save current page to flight controller?"
 
         form.openDialog({
             width = nil,
@@ -772,7 +772,7 @@ function app.wakeupUI()
         form.openDialog({
             width = nil,
             title = "Reload",
-            message = "Reload data from flight controller",
+            message = "Reload data from flight controller?",
             buttons = buttons,
             wakeup = function()
             end,

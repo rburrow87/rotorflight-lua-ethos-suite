@@ -206,7 +206,7 @@ data["msp_speed"]["TEXT"] = {"This tool attempt to determine the quality of your
 data["msp_exp"] = {}
 data["msp_exp"]["qrCODE"] = nil
 data["msp_exp"]["TEXT"] = {
-    "This tool provides the ability to send a custom byte string to the FBL. It is useful for developers when debugging values",
+    "This tool provides the ability to send a custom byte string to the flight controller. It is useful for developers when debugging values.",
     "If you do not understand what you are doing, do not use it as bad things can happen."
 }
 
