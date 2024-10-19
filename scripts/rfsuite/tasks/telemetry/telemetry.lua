@@ -38,17 +38,17 @@ local sensorRate = 2 -- how fast can we call the rssi sensor
 local telemetryState = false
 
 local sensorTable = {}
-sensorTable["voltage"] = {sport = {category = CATEGORY_TELEMETRY_SENSOR, appId = 0x0210}, ccrsf = "Vbat", lcrsf = "Rx Batt"}
-sensorTable["rpm"] = {sport = {category = CATEGORY_TELEMETRY_SENSOR, appId = 0x0500}, ccrsf = "Hspd", lcrsf = "GPS Alt"}
-sensorTable["current"] = {sport = {category = CATEGORY_TELEMETRY_SENSOR, appId = 0x0200}, ccrsf = "Curr", lcrsf = "Rx Curr"}
-sensorTable["tempESC"] = {sport = {category = CATEGORY_TELEMETRY_SENSOR, appId = 0x0B70}, ccrsf = "Tesc", lcrsf = "GPS Speed"}
-sensorTable["tempMCU"] = {sport = {category = CATEGORY_TELEMETRY_SENSOR, appId = 0x0401}, ccrsf = "Tmcu", lcrsf = "GPS Sats"}
-sensorTable["fuel"] = {sport = {category = CATEGORY_TELEMETRY_SENSOR, appId = 0x0600}, ccrsf = "Bat%", lcrsf = "Rx Batt%"}
-sensorTable["capacity"] = {sport = {category = CATEGORY_TELEMETRY_SENSOR, appId = 0x5250}, ccrsf = "Capa", lcrsf = "Rx Cons"}
-sensorTable["governor"] = {sport = {category = CATEGORY_TELEMETRY_SENSOR, appId = 0x5450}, ccrsf = "Gov", lcrsf = "Flight mode"}
+sensorTable["voltage"] = {sport = {category = CATEGORY_TELEMETRY_SENSOR, appId = 0x0210}, ccrsf = "Voltage", lcrsf = "Rx Batt"}
+sensorTable["rpm"] = {sport = {category = CATEGORY_TELEMETRY_SENSOR, appId = 0x0500}, ccrsf = "Headspeed", lcrsf = "GPS Alt"}
+sensorTable["current"] = {sport = {category = CATEGORY_TELEMETRY_SENSOR, appId = 0x0200}, ccrsf = "Current", lcrsf = "Rx Curr"}
+sensorTable["tempESC"] = {sport = {category = CATEGORY_TELEMETRY_SENSOR, appId = 0x0B70}, ccrsf = "ESC Temp", lcrsf = "GPS Speed"}
+sensorTable["tempMCU"] = {sport = {category = CATEGORY_TELEMETRY_SENSOR, appId = 0x0401}, ccrsf = "MCU Temp", lcrsf = "GPS Sats"}
+sensorTable["fuel"] = {sport = {category = CATEGORY_TELEMETRY_SENSOR, appId = 0x0600}, ccrsf = "Charge Level", lcrsf = "Rx Batt%"}
+sensorTable["capacity"] = {sport = {category = CATEGORY_TELEMETRY_SENSOR, appId = 0x5250}, ccrsf = "Consumption", lcrsf = "Rx Cons"}
+sensorTable["governor"] = {sport = {category = CATEGORY_TELEMETRY_SENSOR, appId = 0x5450}, ccrsf = "Governor", lcrsf = "Flight mode"}
 sensorTable["rssi"] = {sport = rfsuite.utils.getRssiSensor(), ccrsf = rfsuite.utils.getRssiSensor(), rfsuite.utils.getRssiSensor()}
-sensorTable["adjF"] = {sport = {category = CATEGORY_TELEMETRY_SENSOR, appId = 0x5110}, ccrsf = "AdjF", lcrsf = nil}
-sensorTable["adjV"] = {sport = {category = CATEGORY_TELEMETRY_SENSOR, appId = 0x5111}, ccrsf = "AdjV", lcrsf = nil}
+sensorTable["adjF"] = {sport = {category = CATEGORY_TELEMETRY_SENSOR, appId = 0x5110}, ccrsf = "Adj. Source", lcrsf = nil}
+sensorTable["adjV"] = {sport = {category = CATEGORY_TELEMETRY_SENSOR, appId = 0x5111}, ccrsf = "Adj. Value", lcrsf = nil}
 
 local tlm = system.getSource({category = CATEGORY_SYSTEM_EVENT, member = TELEMETRY_ACTIVE, options = nil})
 
@@ -65,7 +65,7 @@ function telemetry.getSensorSource(name)
 
             -- find type we are targetting
             if telemetrySOURCE ~= nil then
-                if crsfSOURCE == nil then crsfSOURCE = system.getSource("*Cnt") end
+                if crsfSOURCE == nil then crsfSOURCE = system.getSource("Frame Count") end
 
                 if crsfSOURCE ~= nil then
                     protocol = 'ccrsf'

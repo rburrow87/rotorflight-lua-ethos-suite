@@ -140,10 +140,10 @@ function adjfunc.wakeup()
     -- ADJ Function Management
     local telemetrySOURCE = system.getSource("Rx RSSI1")
     if telemetrySOURCE ~= nil then
-        local crsfSOURCE = system.getSource("Vbat")
+        local crsfSOURCE = system.getSource("Voltage")
         if crsfSOURCE ~= nil then
-            adjfunc.adjFunctionSrc = system.getSource("AdjF")
-            adjfunc.adjValueSrc = system.getSource("AdjV")
+            adjfunc.adjFunctionSrc = system.getSource("Adj. Source")
+            adjfunc.adjValueSrc = system.getSource("Adj. Value")
             if adjfunc.adjFunctionSrc == nil or adjfunc.adjValueSrc == nil then return end
         end
     else
