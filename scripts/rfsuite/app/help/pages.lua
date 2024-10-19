@@ -179,7 +179,7 @@ data["about"] = {}
 data["about"]["qrCODE"] = "app/gfx/qr/about.png"
 data["about"]["TEXT"] = {
     "This page provides some useful information that you may be asked for when requesting support.", "For support, please first read the help pages on www.rotorflight.org",
-    "If stuck or further assistance required, drop past out discord group by scanning the qr code on the right."
+    "If you're stuck or need assistance, drop by our Discord group by scanning the QR code on the right."
 }
 
 -- SELECT PROFILE

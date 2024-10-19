@@ -1,4 +1,4 @@
-local toolName = "Yge"
+local toolName = "YGE"
 moduleName = "RF2YGE"
 
 local mspHeaderBytes = 2
