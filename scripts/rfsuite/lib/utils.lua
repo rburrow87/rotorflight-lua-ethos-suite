@@ -208,34 +208,6 @@ function utils.stringInArray(array, s)
     return false
 end
 
-function utils.wrapText(text, width)
-    local lines = {}
-    local line = ""
-
-    local height
-    for word in text:gmatch("%S+") do
-
-        local lw, lh = lcd.getTextSize(line)
-        local ww, wh = lcd.getTextSize(word)
-
-        if lw + ww + 5 > width then
-            table.insert(lines, line)
-            line = word
-
-        else
-            if lw > 0 then
-                line = line .. " " .. word
-            else
-                line = word
-            end
-        end
-    end
-
-    if #line > 0 then table.insert(lines, line) end
-
-    return table.concat(lines, "\n")
-end
-
 function utils.countCarriageReturns(text)
     local _, count = text:gsub("\r", "")
     return count

@@ -844,26 +844,15 @@ function ui.openPageHelp(helpdata, section)
     else
         txtData = helpdata[section]["TEXT"]
     end
-    if helpdata[section]["qrCODE"] ~= nil then
-        qr = config.suiteDir .. helpdata[section]["qrCODE"]
-    else
-        qr = nil
-    end
+
 
     local message = ""
 
-    -- find point that qr starts
-    local qw = rfsuite.app.radio.helpQrCodeSize
-    local qh = rfsuite.app.radio.helpQrCodeSize + rfsuite.app.radio.buttonPadding
-    local qx = (config.lcdWidth - qw - rfsuite.app.radio.buttonPadding / 2) - rfsuite.app.radio.buttonPadding
-
     -- wrap text because of image on right
     for k, v in ipairs(txtData) do
-        local count = rfsuite.utils.countCarriageReturns(message)
-
-        message = message .. rfsuite.utils.wrapText(v, qx) .. "\r\n\r\n"
-
+        message = message .. v .. "\r\n\r\n"
     end
+
 
     local buttons = {
         {
@@ -873,13 +862,6 @@ function ui.openPageHelp(helpdata, section)
             end
         }
     }
-
-    local bitmap
-    if qr ~= nil then
-        bitmap = lcd.loadBitmap(qr)
-    else
-        bitmap = nil
-    end
 
     form.openDialog({
         width = config.lcdWidth,
@@ -893,15 +875,6 @@ function ui.openPageHelp(helpdata, section)
             local w = config.lcdWidth
             local h = config.lcdHeight
             local left = w * 0.75
-
-            local qw = rfsuite.app.radio.helpQrCodeSize
-            local qh = rfsuite.app.radio.helpQrCodeSize
-
-            if qr ~= nil then
-                local qy = rfsuite.app.radio.buttonPadding
-                local qx = config.lcdWidth - qw - rfsuite.app.radio.buttonPadding / 2
-                lcd.drawBitmap(qx, qy, bitmap, qw, qh)
-            end
 
         end,
         options = TEXT_LEFT
