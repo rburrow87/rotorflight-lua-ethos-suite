@@ -615,10 +615,10 @@ function app.wakeupUI()
                     message = "Please check your heli is powered on and telemetry is running."
                     app.triggers.invalidConnectionSetup = true
                 elseif rfsuite.config.apiVersion == nil then
-                    message = "Unable to determine msp version in use."
+                    message = "Unable to determine MSP version in use."
                     app.triggers.invalidConnectionSetup = true
                 elseif not rfsuite.utils.stringInArray(rfsuite.config.supportedMspApiVersion, apiVersionAsString) then
-                    message = "This version of the Lua scripts \ncan't be used with the selected model (" .. rfsuite.config.apiVersion .. ")."
+                    message = "This version of the Lua script \ncan't be used with the selected model (" .. rfsuite.config.apiVersion .. ")."
                     app.triggers.invalidConnectionSetup = true
                 end
 
@@ -658,7 +658,7 @@ function app.wakeupUI()
         if app.dialogs.saveWatchDog ~= nil then
             if (os.clock() - app.dialogs.saveWatchDog) > (tonumber(app.protocol.saveTimeout + 5)) or (app.dialogs.saveProgressCounter > 120 and rfsuite.bg.msp.mspQueue:isProcessed()) then
                 app.audio.playTimeout = true
-                app.ui.progessDisplaySaveMessage("Error.. we timed out")
+                app.ui.progessDisplaySaveMessage("Error: timed out")
                 app.ui.progessDisplaySaveCloseAllowed(true)
                 app.dialogs.save:value(100)
                 app.dialogs.saveProgressCounter = 0
@@ -682,7 +682,7 @@ function app.wakeupUI()
             app.audio.playTimeout = true
 
             if app.dialogs.progress ~= nil then
-                app.ui.progessDisplayMessage("Error.. we timed out")
+                app.ui.progessDisplayMessage("Error: timed out")
                 app.ui.progessDisplayCloseAllowed(true)
             end
 
@@ -824,7 +824,7 @@ function app.wakeupUI()
         if app.triggers.showSaveArmedWarning == true and app.triggers.closeSave == false then
             if app.dialogs.progressDisplay == false then
                 app.dialogs.progressCounter = 0
-                app.ui.progessDisplay('Save not commited to epprom', 'Please disarm to save to ensure integretty when saving.')
+                app.ui.progessDisplay('Save not committed to EEPROM', 'Please disarm to save to ensure data integrity when saving.')
             end
             if app.dialogs.progressCounter >= 100 then
                 app.triggers.showSaveArmedWarning = false

@@ -283,7 +283,7 @@ local function openPageInit(pidx, title, script)
                         buf.offset = i
                         local servoOverride = rfsuite.bg.msp.mspHelper.readU8(buf)
                         if servoOverride == 0 then
-                            rfsuite.utils.log("Servo overide: true")
+                            rfsuite.utils.log("Servo override: true")
                             rfsuite.config.servoOverride = true
                         end
                     end
@@ -336,7 +336,7 @@ local function onToolMenu(self)
                 action = function()
 
                     -- we cant launch the loader here to se rely on the modules
-                    -- wakup function to do this
+                    -- wakeup function to do this
                     triggerOverRide = true
                     return true
                 end
@@ -351,11 +351,11 @@ local function onToolMenu(self)
     local message
     local title
     if rfsuite.config.servoOverride == false then
-        title = "Enable servo overide"
-        message = "Servo overide allows you to 'trim' your servo center point in real time."
+        title = "Enable servo override"
+        message = "Servo override allows you to 'trim' your servo center point in real time."
     else
-        title = "Disable servo overide"
-        message = "Return control of the servos to the flight controller"
+        title = "Disable servo override"
+        message = "Return control of the servos to the flight controller."
     end
 
     form.openDialog({
@@ -378,12 +378,12 @@ local function wakeup()
 
         if rfsuite.config.servoOverride == false then
             rfsuite.app.audio.playServoOverideEnable = true
-            rfsuite.app.ui.progessDisplay("Servo overide...", "Enabling servo overide.")
+            rfsuite.app.ui.progessDisplay("Servo override", "Enabling servo override...")
             rfsuite.app.Page.servoCenterFocusAllOn(self)
             rfsuite.config.servoOverride = true
         else
             rfsuite.app.audio.playServoOverideDisable = true
-            rfsuite.app.ui.progessDisplay("Servo overide...", "Disabling servo overide.")
+            rfsuite.app.ui.progessDisplay("Servo override", "Disabling servo override...")
             rfsuite.app.Page.servoCenterFocusAllOff(self)
             rfsuite.config.servoOverride = false
         end
@@ -437,7 +437,7 @@ local function onNavMenu(self)
         rfsuite.app.audio.playServoOverideDisable = true
         rfsuite.config.servoOverride = false
         inFocus = false
-        rfsuite.app.ui.progessDisplay("Servo overide...", "Disabling servo overide.")
+        rfsuite.app.ui.progessDisplay("Servo override", "Disabling servo override...")
         rfsuite.app.Page.servoCenterFocusAllOff(self)
         rfsuite.app.triggers.closeProgressLoader = true
     end

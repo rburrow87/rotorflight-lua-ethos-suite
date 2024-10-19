@@ -108,8 +108,8 @@ local function startTest(duration)
     startTestTime = os.clock()
 
     testLoader = form.openProgressDialog({
-        title = "Testing..",
-        message = "Testing msp performance...",
+        title = "Testing",
+        message = "Testing MSP performance...",
         close = function()
             updateStats()
             testLoader = nil
@@ -188,7 +188,7 @@ local function openSpeedTestDialog()
             end
         }
     }
-    form.openDialog({title = "Start", message = "Would you like to start the test?  Choose the test run time below.", buttons = buttons, options = TEXT_LEFT})
+    form.openDialog({title = "Start", message = "Would you like to start the test? Choose the test run time below.", buttons = buttons, options = TEXT_LEFT})
 end
 
 local function openPage(pidx, title, script)
@@ -203,7 +203,7 @@ local function openPage(pidx, title, script)
 
     form.clear()
 
-    local titleline = form.addLine("Msp speed")
+    local titleline = form.addLine("MSP Speed")
 
     local buttonW = 100
     local buttonWs = buttonW - (buttonW * 20) / 100
@@ -260,7 +260,7 @@ local function openPage(pidx, title, script)
     line['memory'] = form.addLine("Memory free")
     fields['memory'] = form.addStaticText(line['memory'], posText, rfsuite.utils.round(system.getMemoryUsage().luaRamAvailable / 1000, 2) .. 'kB')
 
-    line['runtime'] = form.addLine("Test Length")
+    line['runtime'] = form.addLine("Test length")
     fields['runtime'] = form.addStaticText(line['runtime'], posText, "-")
 
     line['total'] = form.addLine("Total queries")

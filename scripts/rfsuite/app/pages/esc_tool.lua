@@ -74,7 +74,7 @@ local function openPage(pidx, title, script)
 
     form.clear()
 
-    line = form.addLine("Esc" .. ' / ' .. ESC.toolName)
+    line = form.addLine("ESC" .. ' / ' .. ESC.toolName)
 
     buttonW = 100
     local x = windowWidth - buttonW
@@ -86,7 +86,7 @@ local function openPage(pidx, title, script)
         paint = function()
         end,
         press = function()
-            rfsuite.app.ui.openPage(pidx, "Esc", "esc.lua")
+            rfsuite.app.ui.openPage(pidx, "ESC", "esc.lua")
 
         end
     })
@@ -296,7 +296,7 @@ local function event(widget, category, value, x, y)
 
     if category == 5 or value == 35 then
         if powercycleLoader then powercycleLoader:close() end
-        rfsuite.app.ui.openPage(pidx, "Esc", "esc.lua")
+        rfsuite.app.ui.openPage(pidx, "ESC", "esc.lua")
         return true
     end
 
