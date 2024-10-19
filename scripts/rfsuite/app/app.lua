@@ -448,16 +448,16 @@ function app.wakeupUI()
     if app.triggers.closeProgressLoader == true then
         if app.dialogs.progressCounter >= 90 then
             app.dialogs.progressCounter = app.dialogs.progressCounter + 0.5
-            if app.dialogs.progress ~= nil then app.ui.progessDisplayValue(app.dialogs.progressCounter) end
+            if app.dialogs.progress ~= nil then app.ui.progressDisplayValue(app.dialogs.progressCounter) end
         else
             app.dialogs.progressCounter = app.dialogs.progressCounter + 10
-            if app.dialogs.progress ~= nil then app.ui.progessDisplayValue(app.dialogs.progressCounter) end
+            if app.dialogs.progress ~= nil then app.ui.progressDisplayValue(app.dialogs.progressCounter) end
         end
 
         if app.dialogs.progressCounter >= 101 then
             app.dialogs.progressWatchDog = nil
             app.dialogs.progressDisplay = false
-            if app.dialogs.progress ~= nil then app.ui.progessDisplayClose() end
+            if app.dialogs.progress ~= nil then app.ui.progressDisplayClose() end
             app.dialogs.progressCounter = 0
             app.triggers.closeProgressLoader = false
         end
@@ -479,7 +479,7 @@ function app.wakeupUI()
             end
         end
 
-        if app.dialogs.save ~= nil then app.ui.progessDisplaySaveValue(app.dialogs.saveProgressCounter) end
+        if app.dialogs.save ~= nil then app.ui.progressDisplaySaveValue(app.dialogs.saveProgressCounter) end
 
         if app.dialogs.saveProgressCounter >= 100 and rfsuite.bg.msp.mspQueue:isProcessed() then
             app.triggers.closeSave = false
@@ -488,7 +488,7 @@ function app.wakeupUI()
             app.dialogs.saveWatchDog = nil
             if app.dialogs.save ~= nil then
 
-                app.ui.progessDisplaySaveClose()
+                app.ui.progressDisplaySaveClose()
 
                 if rfsuite.config.reloadOnSave == true then app.triggers.triggerReloadNoPrompt = true end
 
@@ -503,14 +503,14 @@ function app.wakeupUI()
 
         app.dialogs.saveProgressCounter = app.dialogs.saveProgressCounter + 5
 
-        if app.dialogs.save ~= nil then app.ui.progessDisplaySaveValue(app.dialogs.saveProgressCounter) end
+        if app.dialogs.save ~= nil then app.ui.progressDisplaySaveValue(app.dialogs.saveProgressCounter) end
 
         if app.dialogs.saveProgressCounter >= 100 then
             app.triggers.closeSaveFake = false
             app.dialogs.saveProgressCounter = 0
             app.dialogs.saveDisplay = false
             app.dialogs.saveWatchDog = nil
-            app.ui.progessDisplaySaveClose()
+            app.ui.progressDisplaySaveClose()
         end
     end
 
@@ -579,10 +579,10 @@ function app.wakeupUI()
     end
 
     if app.triggers.telemetryState ~= 1 and app.triggers.disableRssiTimeout == false then
-        if rfsuite.app.dialogs.progressDisplay == true then app.ui.progessDisplayClose() end
-        if rfsuite.app.dialogs.saveDisplay == true then app.ui.progessDisplaySaveClose() end
+        if rfsuite.app.dialogs.progressDisplay == true then app.ui.progressDisplayClose() end
+        if rfsuite.app.dialogs.saveDisplay == true then app.ui.progressDisplaySaveClose() end
 
-        if app.dialogs.nolinkDisplay == false and app.dialogs.nolinkDisplayErrorDialog ~= true then app.ui.progessNolinkDisplay() end
+        if app.dialogs.nolinkDisplay == false and app.dialogs.nolinkDisplayErrorDialog ~= true then app.ui.progressNolinkDisplay() end
     end
     if (app.dialogs.nolinkDisplay == true) and app.triggers.disableRssiTimeout == false then
 
@@ -590,7 +590,7 @@ function app.wakeupUI()
 
         if app.dialogs.nolinkValueCounter >= 101 then
 
-            app.ui.progessNolinkDisplayClose()
+            app.ui.progressNolinkDisplayClose()
 
             if app.guiIsRunning == true and app.triggers.invalidConnectionSetup ~= true and app.triggers.wasConnected == false then
 
@@ -649,7 +649,7 @@ function app.wakeupUI()
             end
 
         end
-        app.ui.progessDisplayNoLinkValue(app.dialogs.nolinkValueCounter)
+        app.ui.progressDisplayNoLinkValue(app.dialogs.nolinkValueCounter)
     end
 
     -- a watchdog to enable the close button when saving data if we exheed the save timout
@@ -658,8 +658,8 @@ function app.wakeupUI()
         if app.dialogs.saveWatchDog ~= nil then
             if (os.clock() - app.dialogs.saveWatchDog) > (tonumber(app.protocol.saveTimeout + 5)) or (app.dialogs.saveProgressCounter > 120 and rfsuite.bg.msp.mspQueue:isProcessed()) then
                 app.audio.playTimeout = true
-                app.ui.progessDisplaySaveMessage("Error: timed out")
-                app.ui.progessDisplaySaveCloseAllowed(true)
+                app.ui.progressDisplaySaveMessage("Error: timed out")
+                app.ui.progressDisplaySaveCloseAllowed(true)
                 app.dialogs.save:value(100)
                 app.dialogs.saveProgressCounter = 0
                 app.dialogs.saveDisplay = false
@@ -675,15 +675,15 @@ function app.wakeupUI()
     if app.dialogs.progressDisplay == true and app.dialogs.progressWatchDog ~= nil then
 
         app.dialogs.progressCounter = app.dialogs.progressCounter + 2
-        app.ui.progessDisplayValue(app.dialogs.progressCounter)
+        app.ui.progressDisplayValue(app.dialogs.progressCounter)
 
         if (os.clock() - app.dialogs.progressWatchDog) > (tonumber(rfsuite.bg.msp.protocol.pageReqTimeout)) then
 
             app.audio.playTimeout = true
 
             if app.dialogs.progress ~= nil then
-                app.ui.progessDisplayMessage("Error: timed out")
-                app.ui.progessDisplayCloseAllowed(true)
+                app.ui.progressDisplayMessage("Error: timed out")
+                app.ui.progressDisplayCloseAllowed(true)
             end
 
             -- switch back to original page values
@@ -791,15 +791,15 @@ function app.wakeupUI()
             if app.dialogs.saveDisplay == false then
                 app.triggers.saveFailed = false
                 app.dialogs.saveProgressCounter = 0
-                app.ui.progessDisplaySave()
+                app.ui.progressDisplaySave()
                 rfsuite.bg.msp.mspQueue.retryCount = 0
             end
             if app.pageState == app.pageStatus.saving then
-                app.ui.progessDisplaySaveValue(app.dialogs.saveProgressCounter, "Saving data...")
+                app.ui.progressDisplaySaveValue(app.dialogs.saveProgressCounter, "Saving data...")
             elseif app.pageState == app.pageStatus.eepromWrite then
-                app.ui.progessDisplaySaveValue(app.dialogs.saveProgressCounter, "Saving data...")
+                app.ui.progressDisplaySaveValue(app.dialogs.saveProgressCounter, "Saving data...")
             elseif app.pageState == app.pageStatus.rebooting then
-                app.ui.progessDisplaySaveValue(app.dialogs.saveProgressCounter, "Rebooting...")
+                app.ui.progressDisplaySaveValue(app.dialogs.saveProgressCounter, "Rebooting...")
             end
 
         else
@@ -812,7 +812,7 @@ function app.wakeupUI()
         if app.dialogs.saveDisplay == false then
             app.triggers.saveFailed = false
             app.dialogs.saveProgressCounter = 0
-            app.ui.progessDisplaySave()
+            app.ui.progressDisplaySave()
             rfsuite.bg.msp.mspQueue.retryCount = 0
             app.triggers.closeSaveFake = true
             app.triggers.isSavingFake = false
@@ -824,11 +824,11 @@ function app.wakeupUI()
         if app.triggers.showSaveArmedWarning == true and app.triggers.closeSave == false then
             if app.dialogs.progressDisplay == false then
                 app.dialogs.progressCounter = 0
-                app.ui.progessDisplay('Save not committed to EEPROM', 'Please disarm to save to ensure data integrity when saving.')
+                app.ui.progressDisplay('Save not committed to EEPROM', 'Please disarm to save to ensure data integrity when saving.')
             end
             if app.dialogs.progressCounter >= 100 then
                 app.triggers.showSaveArmedWarning = false
-                app.ui.progessDisplayClose()
+                app.ui.progressDisplayClose()
             end
         end
     end
@@ -872,13 +872,13 @@ function app.wakeupUI()
     -- all the menu case checks - we should just be able to do as a task
     -- when viewing the page
     if app.triggers.reload == true then
-        app.ui.progessDisplay()
+        app.ui.progressDisplay()
         app.triggers.reload = false
         app.ui.openPageRefresh(app.lastIdx, app.lastTitle, app.lastScript)
     end
 
     if app.triggers.reloadFull == true then
-        app.ui.progessDisplay()
+        app.ui.progressDisplay()
         app.triggers.reloadFull = false
         app.ui.openPage(app.lastIdx, app.lastTitle, app.lastScript)
     end
@@ -1060,22 +1060,22 @@ function app.event(widget, category, value, x, y)
     if app.uiState == app.uiStatus.pages then
 
         if category == EVT_CLOSE and value == 0 then
-            if app.dialogs.progressDisplay == true then app.ui.progessDisplayClose() end
-            if app.dialogs.saveDisplay == true then app.ui.progessDisplaySaveClose() end
+            if app.dialogs.progressDisplay == true then app.ui.progressDisplayClose() end
+            if app.dialogs.saveDisplay == true then app.ui.progressDisplaySaveClose() end
             if app.Page.onNavMenu then app.Page.onNavMenu(app.Page) end
             app.ui.openMainMenu()
             return true
         end
         if value == 35 then
-            if app.dialogs.progressDisplay == true then app.ui.progessDisplayClose() end
-            if app.dialogs.saveDisplay == true then app.ui.progessDisplaySaveClose() end
+            if app.dialogs.progressDisplay == true then app.ui.progressDisplayClose() end
+            if app.dialogs.saveDisplay == true then app.ui.progressDisplaySaveClose() end
             if app.Page.onNavMenu then app.Page.onNavMenu(app.Page) end
             app.ui.openMainMenu()
             return true
         end
         if value == KEY_ENTER_LONG then
-            if app.dialogs.progressDisplay == true then app.ui.progessDisplayClose() end
-            if app.dialogs.saveDisplay == true then app.ui.progessDisplaySaveClose() end
+            if app.dialogs.progressDisplay == true then app.ui.progressDisplayClose() end
+            if app.dialogs.saveDisplay == true then app.ui.progressDisplaySaveClose() end
             -- if triggers.isArmed == false then
             app.triggers.triggerSave = true
             system.killEvents(KEY_ENTER_BREAK)
@@ -1087,8 +1087,8 @@ function app.event(widget, category, value, x, y)
 
     if app.uiState == app.uiStatus.MainMenu then
         if value == KEY_ENTER_LONG then
-            if app.dialogs.progressDisplay == true then app.ui.progessDisplayClose() end
-            if app.dialogs.saveDisplay == true then app.ui.progessDisplaySaveClose() end
+            if app.dialogs.progressDisplay == true then app.ui.progressDisplayClose() end
+            if app.dialogs.saveDisplay == true then app.ui.progressDisplaySaveClose() end
             system.killEvents(KEY_ENTER_BREAK)
             return true
         end
@@ -1103,9 +1103,9 @@ function app.close()
 
     if app.Page ~= nil and (app.uiState == app.uiStatus.pages or app.uiState == app.uiStatus.mainMenu) then if app.Page.close then app.Page.close() end end
 
-    if app.dialogs.progress then app.ui.progessDisplayClose() end
-    if app.dialogs.save then app.ui.progessDisplaySaveClose() end
-    if app.dialogs.noLink then app.ui.progessNolinkDisplayClose() end
+    if app.dialogs.progress then app.ui.progressDisplayClose() end
+    if app.dialogs.save then app.ui.progressDisplaySaveClose() end
+    if app.dialogs.noLink then app.ui.progressNolinkDisplayClose() end
     invalidatePages()
     app.resetState()
     -- collectgarbage()

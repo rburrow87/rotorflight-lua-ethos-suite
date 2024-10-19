@@ -168,7 +168,7 @@ local function wakeup(self)
 
             rfsuite.app.audio.playMixerOverideEnable = true
 
-            rfsuite.app.ui.progessDisplay("Mixer override", "Enabling mixer override...")
+            rfsuite.app.ui.progressDisplay("Mixer override", "Enabling mixer override...")
 
             rfsuite.app.Page.mixerOn(self)
             inOverRide = true
@@ -176,7 +176,7 @@ local function wakeup(self)
 
             rfsuite.app.audio.playMixerOverideDisable = true
 
-            rfsuite.app.ui.progessDisplay("Mixer override", "Disabling mixer override...")
+            rfsuite.app.ui.progressDisplay("Mixer override", "Disabling mixer override...")
 
             rfsuite.app.Page.mixerOff(self)
             inOverRide = false
@@ -236,7 +236,7 @@ local function onNavMenu(self)
         inOverRide = false
         inFocus = false
 
-        rfsuite.app.ui.progessDisplay("Mixer override", "Disabling mixer override...")
+        rfsuite.app.ui.progressDisplay("Mixer override", "Disabling mixer override...")
 
         mixerOff(self)
         rfsuite.app.triggers.closeProgressLoader = true

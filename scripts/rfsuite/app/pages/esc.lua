@@ -122,7 +122,7 @@ local function openPage(pidx, title, script)
             end,
             press = function()
                 rfsuite.app.menuLastSelected["escmain"] = pidx
-                rfsuite.app.ui.progessDisplay()
+                rfsuite.app.ui.progressDisplay()
                 rfsuite.app.ui.openPage(pidx, pvalue.folder, "esc_tool.lua")
             end
         })
