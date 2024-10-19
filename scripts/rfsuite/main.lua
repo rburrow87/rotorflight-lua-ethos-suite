@@ -52,7 +52,7 @@ config.developerMode = false                                        -- show deve
 config.soundPack = nil                                              -- use an custom sound pack. [default = nil]
 
 -- tasks
-config.bgTaskName = config.toolName .. " [Background Tasks]"        -- background task name for msp services etc
+config.bgTaskName = config.toolName .. " [BG Tasks]"                -- background task name for msp services etc
 config.bgTaskKey = "rf2bg"                                          -- key id used for msp services
 
 -- widgets
