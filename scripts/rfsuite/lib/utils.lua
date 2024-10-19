@@ -132,10 +132,20 @@ function utils.getCurrentProfile()
     if (rfsuite.bg.telemetry.getSensorSource("pidProfile") ~= nil and rfsuite.bg.telemetry.getSensorSource("rateProfile") ~= nil) then
 
         config.activeProfileLast = config.activeProfile
-        config.activeProfile = math.floor(rfsuite.bg.telemetry.getSensorSource("pidProfile"):value())
+        local p = rfsuite.bg.telemetry.getSensorSource("pidProfile"):value()
+        if p ~= nil then
+                config.activeProfile = math.floor(p)
+        else    
+                config.activeProfile = nil
+        end        
 
         config.activeRateProfileLast = config.activeRateProfile
-        config.activeRateProfile = math.floor(rfsuite.bg.telemetry.getSensorSource("rateProfile"):value())
+        local r = rfsuite.bg.telemetry.getSensorSource("rateProfile"):value()
+        if r ~= nil then
+                config.activeRateProfile = math.floor(r)
+        else
+                config.activeRateProfile = nil
+        end
 
     else
         -- msp call to get data
