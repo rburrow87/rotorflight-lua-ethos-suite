@@ -827,7 +827,7 @@ function ui.navigationButtons(x, y, w, h)
                 if rfsuite.app.Page and rfsuite.app.Page.onHelpMenu then
                     rfsuite.app.Page.onHelpMenu(rfsuite.app.Page)
                 else
-                    rfsuite.app.ui.openPagehelp(help.data, section)
+                    rfsuite.app.ui.openPageHelp(help.data, section)
                 end
             end
         })
@@ -835,7 +835,7 @@ function ui.navigationButtons(x, y, w, h)
 
 end
 
-function ui.openPagehelp(helpdata, section)
+function ui.openPageHelp(helpdata, section)
     local txtData
     local qr
 
