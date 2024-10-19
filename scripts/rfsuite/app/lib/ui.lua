@@ -840,7 +840,7 @@ function ui.openPagehelp(helpdata, section)
     local qr
 
     if section == "rates" then
-        txtData = helpdata[section]["table"][rfsuite.RateTable]
+        txtData = helpdata[section]["table"][rfsuite.rateProfile]
     else
         txtData = helpdata[section]["TEXT"]
     end
