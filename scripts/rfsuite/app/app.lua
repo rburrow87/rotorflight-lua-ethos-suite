@@ -582,7 +582,7 @@ function app.wakeupUI()
         if rfsuite.app.dialogs.progressDisplay == true then app.ui.progressDisplayClose() end
         if rfsuite.app.dialogs.saveDisplay == true then app.ui.progressDisplaySaveClose() end
 
-        if app.dialogs.nolinkDisplay == false and app.dialogs.nolinkDisplayErrorDialog ~= true then app.ui.progessNolinkDisplay() end
+        if app.dialogs.nolinkDisplay == false and app.dialogs.nolinkDisplayErrorDialog ~= true then app.ui.progressNolinkDisplay() end
     end
     if (app.dialogs.nolinkDisplay == true) and app.triggers.disableRssiTimeout == false then
 
@@ -590,7 +590,7 @@ function app.wakeupUI()
 
         if app.dialogs.nolinkValueCounter >= 101 then
 
-            app.ui.progessNolinkDisplayClose()
+            app.ui.progressNolinkDisplayClose()
 
             if app.guiIsRunning == true and app.triggers.invalidConnectionSetup ~= true and app.triggers.wasConnected == false then
 
@@ -1105,7 +1105,7 @@ function app.close()
 
     if app.dialogs.progress then app.ui.progressDisplayClose() end
     if app.dialogs.save then app.ui.progressDisplaySaveClose() end
-    if app.dialogs.noLink then app.ui.progessNolinkDisplayClose() end
+    if app.dialogs.noLink then app.ui.progressNolinkDisplayClose() end
     invalidatePages()
     app.resetState()
     -- collectgarbage()

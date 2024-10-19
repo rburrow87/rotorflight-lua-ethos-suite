@@ -45,7 +45,7 @@ function ui.progressDisplay(title, message)
     end
 end
 
-function ui.progessNolinkDisplay()
+function ui.progressNolinkDisplay()
     rfsuite.app.dialogs.nolinkDisplay = true
     rfsuite.app.dialogs.noLink = form.openProgressDialog("Connecting", "Connecting...")
     rfsuite.app.dialogs.noLink:closeAllowed(false)
@@ -126,7 +126,7 @@ function ui.progressDisplaySaveCloseAllowed(status)
     if rfsuite.app.dialogs.save ~= nil then rfsuite.app.dialogs.save:closeAllowed(status) end
 end
 
-function ui.progessNolinkDisplayClose()
+function ui.progressNolinkDisplayClose()
     rfsuite.app.dialogs.noLink:close()
 end
 
