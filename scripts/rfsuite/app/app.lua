@@ -522,15 +522,12 @@ function app.wakeupUI()
         local profileCheckInterval
 
         -- alter the interval for checking profile changes depenant of if using msp or not
-        if (rfsuite.app.sensors ~= nil) and (rfsuite.app.sensors.profileCRSF ~= nil and rfsuite.app.sensors.profileCRSF:state() == true) and
-            (rfsuite.app.sensors.rateCRSF ~= nil and rfsuite.app.sensors.rateCRSF:state() == true) then
-            profileCheckInterval = 0.01
-        elseif (rfsuite.app.sensors ~= nil) and (rfsuite.app.sensors.profileSPORT ~= nil and rfsuite.app.sensors.profileSPORT:state() == true) and
-            (rfsuite.app.sensors.rateSPORT ~= nil and rfsuite.app.sensors.rateSPORT:state() == true) then
-            profileCheckInterval = 0.01
+        if (rfsuite.bg.telemetry.getSensorSource("pidProfile") ~= nil and rfsuite.bg.telemetry.getSensorSource("rateProfile") ~= nil) then
+            profileCheckInterval = 0.1   
         else
             profileCheckInterval = 1.5
         end
+        print(profileCheckInterval)
 
         if (now - app.profileCheckScheduler) >= profileCheckInterval then
             app.profileCheckScheduler = now
@@ -973,13 +970,6 @@ end
 
 function app.create()
 
-
-
-    -- some sources that we only create once but can use
-    app.sensors.profileCRSF = system.getSource("PID Profile")
-    app.sensors.rateCRSF = system.getSource("Rate Profile")
-    app.sensors.profileSPORT = system.getSource({category = CATEGORY_TELEMETRY_SENSOR, appId = 0x5471})
-    app.sensors.rateSPORT = system.getSource({category = CATEGORY_TELEMETRY_SENSOR, appId = 0x5472})
 
     -- config.apiVersion = nil
     config.environment = system.getVersion()

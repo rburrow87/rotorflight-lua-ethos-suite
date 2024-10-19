@@ -129,24 +129,13 @@ end
 -- you MUST set it to nil after you get it!
 function utils.getCurrentProfile()
 
-    if (rfsuite.app.sensors ~= nil) and (rfsuite.app.sensors.profileCRSF ~= nil and rfsuite.app.sensors.profileCRSF:state() == true) and
-        (rfsuite.app.sensors.rateCRSF ~= nil and rfsuite.app.sensors.rateCRSF:state() == true) then
-        -- crsf call for data              
-        config.activeProfileLast = config.activeProfile
-        config.activeProfile = math.floor(rfsuite.app.sensors.profileCRSF:value())
-
-        config.activeRateProfileLast = config.activeRateProfile
-        config.activeRateProfile = math.floor(rfsuite.app.sensors.rateCRSF:value())
-
-    elseif (rfsuite.app.sensors ~= nil) and (rfsuite.app.sensors.profileSPORT ~= nil and rfsuite.app.sensors.profileSPORT:state() == true) and
-        (rfsuite.app.sensors.rateSPORT ~= nil and rfsuite.app.sensors.rateSPORT:state() == true) then
-        -- call sport sensor data
+    if (rfsuite.bg.telemetry.getSensorSource("pidProfile") ~= nil and rfsuite.bg.telemetry.getSensorSource("rateProfile") ~= nil) then
 
         config.activeProfileLast = config.activeProfile
-        config.activeProfile = math.floor(rfsuite.app.sensors.profileSPORT:value())
+        config.activeProfile = math.floor(rfsuite.bg.telemetry.getSensorSource("pidProfile"):value())
 
         config.activeRateProfileLast = config.activeRateProfile
-        config.activeRateProfile = math.floor(rfsuite.app.sensors.rateSPORT:value())
+        config.activeRateProfile = math.floor(rfsuite.bg.telemetry.getSensorSource("rateProfile"):value())
 
     else
         -- msp call to get data

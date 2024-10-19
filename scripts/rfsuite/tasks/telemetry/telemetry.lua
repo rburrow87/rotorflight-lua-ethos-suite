@@ -49,6 +49,8 @@ sensorTable["governor"] = {sport = {category = CATEGORY_TELEMETRY_SENSOR, appId 
 sensorTable["rssi"] = {sport = rfsuite.utils.getRssiSensor(), ccrsf = rfsuite.utils.getRssiSensor(), rfsuite.utils.getRssiSensor()}
 sensorTable["adjF"] = {sport = {category = CATEGORY_TELEMETRY_SENSOR, appId = 0x5110}, ccrsf = "Adj. Source", lcrsf = nil}
 sensorTable["adjV"] = {sport = {category = CATEGORY_TELEMETRY_SENSOR, appId = 0x5111}, ccrsf = "Adj. Value", lcrsf = nil}
+sensorTable["pidProfile"] = {sport = {category = CATEGORY_TELEMETRY_SENSOR, appId = 0x5471}, ccrsf = "PID Profile", lcrsf = nil}
+sensorTable["rateProfile"] = {sport = {category = CATEGORY_TELEMETRY_SENSOR, appId = 0x5472}, ccrsf = "Rate Profile", lcrsf = nil}
 
 local tlm = system.getSource({category = CATEGORY_SYSTEM_EVENT, member = TELEMETRY_ACTIVE, options = nil})
 
