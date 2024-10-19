@@ -976,8 +976,8 @@ function app.create()
 
 
     -- some sources that we only create once but can use
-    app.sensors.profileCRSF = system.getSource("PID#")
-    app.sensors.rateCRSF = system.getSource("RTE#")
+    app.sensors.profileCRSF = system.getSource("PID Profile")
+    app.sensors.rateCRSF = system.getSource("Rate Profile")
     app.sensors.profileSPORT = system.getSource({category = CATEGORY_TELEMETRY_SENSOR, appId = 0x5471})
     app.sensors.rateSPORT = system.getSource({category = CATEGORY_TELEMETRY_SENSOR, appId = 0x5472})
 
